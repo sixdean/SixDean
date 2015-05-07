@@ -1,0 +1,20 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PartTimeJob", "PartTimeJob\PartTimeJob.csproj", "{17A65D70-3DAE-448E-B2FD-A966A2A167F3}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{17A65D70-3DAE-448E-B2FD-A966A2A167F3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{17A65D70-3DAE-448E-B2FD-A966A2A167F3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{17A65D70-3DAE-448E-B2FD-A966A2A167F3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{17A65D70-3DAE-448E-B2FD-A966A2A167F3}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
