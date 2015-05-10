@@ -1,0 +1,646 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="RightsManagementSystemModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+  <EntityContainer Name="RightsManagementSystemModelStoreContainer">
+    <EntitySet Name="SysPerson" EntityType="RightsManagementSystemModel.Store.SysPerson" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="SysPosition" EntityType="RightsManagementSystemModel.Store.SysPosition" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="SysPersonToPosition" EntityType="RightsManagementSystemModel.Store.SysPersonToPosition" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="SysRole" EntityType="RightsManagementSystemModel.Store.SysRole" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="SysPersonOrPositionToRole" EntityType="RightsManagementSystemModel.Store.SysPersonOrPositionToRole" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="SysDepartment" EntityType="RightsManagementSystemModel.Store.SysDepartment" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="SysRoleToRights" EntityType="RightsManagementSystemModel.Store.SysRoleToRights" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="SysRightsMenu" EntityType="RightsManagementSystemModel.Store.SysRightsMenu" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Menu" EntityType="RightsManagementSystemModel.Store.Menu" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="SystemSetting" EntityType="RightsManagementSystemModel.Store.SystemSetting" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="SysPerSonSysPersonToPosition" Association="RightsManagementSystemModel.Store.SysPerSonSysPersonToPosition">
+      <End Role="SysPerSon" EntitySet="SysPerson" />
+      <End Role="SysPersonToPosition" EntitySet="SysPersonToPosition" />
+    </AssociationSet>
+    <AssociationSet Name="SysPositionSysPersonToPosition" Association="RightsManagementSystemModel.Store.SysPositionSysPersonToPosition">
+      <End Role="SysPosition" EntitySet="SysPosition" />
+      <End Role="SysPersonToPosition" EntitySet="SysPersonToPosition" />
+    </AssociationSet>
+    <AssociationSet Name="SysPositionSysDepartment" Association="RightsManagementSystemModel.Store.SysPositionSysDepartment">
+      <End Role="SysPosition" EntitySet="SysPosition" />
+      <End Role="SysDepartment" EntitySet="SysDepartment" />
+    </AssociationSet>
+    <AssociationSet Name="SysPersonOrPositionToRoleSysRole" Association="RightsManagementSystemModel.Store.SysPersonOrPositionToRoleSysRole">
+      <End Role="SysPersonOrPositionToRole" EntitySet="SysPersonOrPositionToRole" />
+      <End Role="SysRole" EntitySet="SysRole" />
+    </AssociationSet>
+    <AssociationSet Name="SysRoleToRightsSysRightsMenu" Association="RightsManagementSystemModel.Store.SysRoleToRightsSysRightsMenu">
+      <End Role="SysRoleToRights" EntitySet="SysRoleToRights" />
+      <End Role="SysRightsMenu" EntitySet="SysRightsMenu" />
+    </AssociationSet>
+    <AssociationSet Name="SysPositionSysPosition" Association="RightsManagementSystemModel.Store.SysPositionSysPosition">
+      <End Role="SysPosition" EntitySet="SysPosition" />
+      <End Role="SysPosition1" EntitySet="SysPosition" />
+    </AssociationSet>
+    <AssociationSet Name="SysDepartmentSysDepartment" Association="RightsManagementSystemModel.Store.SysDepartmentSysDepartment">
+      <End Role="SysDepartment" EntitySet="SysDepartment" />
+      <End Role="SysDepartment1" EntitySet="SysDepartment" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="SysPerson">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="nvarchar" StoreGeneratedPattern="Identity" Nullable="false" MaxLength="50" />
+    <Property Name="Account" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="PassWord" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SysPosition">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="nvarchar" StoreGeneratedPattern="Identity" Nullable="false" MaxLength="50" />
+    <Property Name="PositionId" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="PositionName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="ParentId" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="DepartmentId" Type="nvarchar" Nullable="false" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="SysPersonToPosition">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="nvarchar" StoreGeneratedPattern="Identity" Nullable="false" MaxLength="50" />
+    <Property Name="PersonId" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="PositionId" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="FlagPrimacy" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SysRole">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="nvarchar" StoreGeneratedPattern="Identity" Nullable="false" MaxLength="50" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SysPersonOrPositionToRole">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="nvarchar" StoreGeneratedPattern="Identity" Nullable="false" MaxLength="50" />
+    <Property Name="RoleId" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="PerSonOrPositionId" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SysDepartment">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="nvarchar" StoreGeneratedPattern="Identity" Nullable="false" MaxLength="50" />
+    <Property Name="DepartmentName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="ParentId" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="Sort" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Remark" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Status" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SysRoleToRights">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="nvarchar" StoreGeneratedPattern="Identity" Nullable="false" MaxLength="50" />
+    <Property Name="RoleId" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="RightsMenuID" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="Operation" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SysRightsMenu">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="nvarchar" StoreGeneratedPattern="Identity" Nullable="false" MaxLength="50" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Relate" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Menu">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="nvarchar" StoreGeneratedPattern="Identity" Nullable="false" MaxLength="50" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="ParentId" Type="nvarchar" Nullable="true" MaxLength="50" />
+    <Property Name="Url" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Iconic" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Sort" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Remark" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Status" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SystemSetting">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="nvarchar" StoreGeneratedPattern="Identity" Nullable="false" MaxLength="50" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Value" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Category" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Sort" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <Association Name="SysPerSonSysPersonToPosition">
+    <End Role="SysPerSon" Type="RightsManagementSystemModel.Store.SysPerson" Multiplicity="1" />
+    <End Role="SysPersonToPosition" Type="RightsManagementSystemModel.Store.SysPersonToPosition" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SysPerSon">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="SysPersonToPosition">
+        <PropertyRef Name="PersonId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="SysPositionSysPersonToPosition">
+    <End Role="SysPosition" Type="RightsManagementSystemModel.Store.SysPosition" Multiplicity="1" />
+    <End Role="SysPersonToPosition" Type="RightsManagementSystemModel.Store.SysPersonToPosition" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SysPosition">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="SysPersonToPosition">
+        <PropertyRef Name="PositionId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="SysPositionSysDepartment">
+    <End Role="SysPosition" Type="RightsManagementSystemModel.Store.SysPosition" Multiplicity="*" />
+    <End Role="SysDepartment" Type="RightsManagementSystemModel.Store.SysDepartment" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="SysDepartment">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="SysPosition">
+        <PropertyRef Name="DepartmentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="SysPersonOrPositionToRoleSysRole">
+    <End Role="SysPersonOrPositionToRole" Type="RightsManagementSystemModel.Store.SysPersonOrPositionToRole" Multiplicity="*" />
+    <End Role="SysRole" Type="RightsManagementSystemModel.Store.SysRole" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="SysRole">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="SysPersonOrPositionToRole">
+        <PropertyRef Name="RoleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="SysRoleToRightsSysRightsMenu">
+    <End Role="SysRoleToRights" Type="RightsManagementSystemModel.Store.SysRoleToRights" Multiplicity="*" />
+    <End Role="SysRightsMenu" Type="RightsManagementSystemModel.Store.SysRightsMenu" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="SysRightsMenu">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="SysRoleToRights">
+        <PropertyRef Name="RightsMenuID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="SysPositionSysPosition">
+    <End Role="SysPosition" Type="RightsManagementSystemModel.Store.SysPosition" Multiplicity="*" />
+    <End Role="SysPosition1" Type="RightsManagementSystemModel.Store.SysPosition" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="SysPosition1">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="SysPosition">
+        <PropertyRef Name="ParentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="SysDepartmentSysDepartment">
+    <End Role="SysDepartment" Type="RightsManagementSystemModel.Store.SysDepartment" Multiplicity="*" />
+    <End Role="SysDepartment1" Type="RightsManagementSystemModel.Store.SysDepartment" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="SysDepartment1">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="SysDepartment">
+        <PropertyRef Name="ParentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="RightsManagementSystemModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="RightsManagementSystemEntities" annotation:LazyLoadingEnabled="true" >
+          <EntitySet Name="SysPerson" EntityType="RightsManagementSystemModel.SysPerson" />
+          <EntitySet Name="SysPosition" EntityType="RightsManagementSystemModel.SysPosition" />
+          <EntitySet Name="SysPersonToPosition" EntityType="RightsManagementSystemModel.SysPersonToPosition" />
+          <AssociationSet Name="SysPerSonSysPersonToPosition" Association="RightsManagementSystemModel.SysPerSonSysPersonToPosition">
+            <End Role="SysPerSon" EntitySet="SysPerson" />
+            <End Role="SysPersonToPosition" EntitySet="SysPersonToPosition" />
+          </AssociationSet>
+          <AssociationSet Name="SysPositionSysPersonToPosition" Association="RightsManagementSystemModel.SysPositionSysPersonToPosition">
+            <End Role="SysPosition" EntitySet="SysPosition" />
+            <End Role="SysPersonToPosition" EntitySet="SysPersonToPosition" />
+          </AssociationSet>
+          <EntitySet Name="SysRole" EntityType="RightsManagementSystemModel.SysRole" />
+          <EntitySet Name="SysPersonOrPositionToRole" EntityType="RightsManagementSystemModel.SysPersonOrPositionToRole" />
+          <EntitySet Name="SysDepartment" EntityType="RightsManagementSystemModel.SysDepartment" />
+          <EntitySet Name="SysRoleToRights" EntityType="RightsManagementSystemModel.SysRoleToRights" />
+          <EntitySet Name="SysRightsMenu" EntityType="RightsManagementSystemModel.SysRightsMenu" />
+          <AssociationSet Name="SysPositionSysDepartment" Association="RightsManagementSystemModel.SysPositionSysDepartment">
+            <End Role="SysPosition" EntitySet="SysPosition" />
+            <End Role="SysDepartment" EntitySet="SysDepartment" />
+          </AssociationSet>
+          <AssociationSet Name="SysPersonOrPositionToRoleSysRole" Association="RightsManagementSystemModel.SysPersonOrPositionToRoleSysRole">
+            <End Role="SysPersonOrPositionToRole" EntitySet="SysPersonOrPositionToRole" />
+            <End Role="SysRole" EntitySet="SysRole" />
+          </AssociationSet>
+          <AssociationSet Name="SysRoleToRightsSysRightsMenu" Association="RightsManagementSystemModel.SysRoleToRightsSysRightsMenu">
+            <End Role="SysRoleToRights" EntitySet="SysRoleToRights" />
+            <End Role="SysRightsMenu" EntitySet="SysRightsMenu" />
+          </AssociationSet>
+          <AssociationSet Name="SysPositionSysPosition" Association="RightsManagementSystemModel.SysPositionSysPosition">
+            <End Role="SysPosition" EntitySet="SysPosition" />
+            <End Role="SysPosition1" EntitySet="SysPosition" />
+          </AssociationSet>
+          <AssociationSet Name="SysDepartmentSysDepartment" Association="RightsManagementSystemModel.SysDepartmentSysDepartment">
+            <End Role="SysDepartment" EntitySet="SysDepartment" />
+            <End Role="SysDepartment1" EntitySet="SysDepartment" />
+          </AssociationSet>
+          <EntitySet Name="Menu" EntityType="RightsManagementSystemModel.Menu" />
+          <EntitySet Name="SystemSetting" EntityType="RightsManagementSystemModel.SystemSetting" />
+        </EntityContainer>
+        <EntityType Name="SysPerson">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="String" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" MaxLength="50" />
+          <Property Type="String" Name="Account" Nullable="false" />
+          <Property Type="String" Name="Name" Nullable="false" />
+          <Property Type="String" Name="PassWord" Nullable="false" />
+          <NavigationProperty Name="SysPersonToPosition" Relationship="RightsManagementSystemModel.SysPerSonSysPersonToPosition" FromRole="SysPerSon" ToRole="SysPersonToPosition" />
+        </EntityType>
+        <EntityType Name="SysPosition">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="String" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" MaxLength="50" />
+          <Property Type="String" Name="PositionId" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="PositionName" Nullable="false" />
+          <Property Type="String" Name="ParentId" Nullable="false" MaxLength="50" />
+          <NavigationProperty Name="SysPersonToPosition" Relationship="RightsManagementSystemModel.SysPositionSysPersonToPosition" FromRole="SysPosition" ToRole="SysPersonToPosition" />
+          <Property Type="String" Name="DepartmentId" Nullable="false" MaxLength="50" />
+          <NavigationProperty Name="SysDepartment" Relationship="RightsManagementSystemModel.SysPositionSysDepartment" FromRole="SysPosition" ToRole="SysDepartment" />
+          <NavigationProperty Name="SysPositionParent" Relationship="RightsManagementSystemModel.SysPositionSysPosition" FromRole="SysPosition" ToRole="SysPosition1" />
+        </EntityType>
+        <EntityType Name="SysPersonToPosition">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="String" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" MaxLength="50" />
+          <Property Type="String" Name="PersonId" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="PositionId" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="FlagPrimacy" Nullable="false" />
+          <NavigationProperty Name="SysPerSon" Relationship="RightsManagementSystemModel.SysPerSonSysPersonToPosition" FromRole="SysPersonToPosition" ToRole="SysPerSon" />
+          <NavigationProperty Name="SysPosition" Relationship="RightsManagementSystemModel.SysPositionSysPersonToPosition" FromRole="SysPersonToPosition" ToRole="SysPosition" />
+        </EntityType>
+        <Association Name="SysPerSonSysPersonToPosition">
+          <End Type="RightsManagementSystemModel.SysPerson" Role="SysPerSon" Multiplicity="1" />
+          <End Type="RightsManagementSystemModel.SysPersonToPosition" Role="SysPersonToPosition" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SysPerSon">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="SysPersonToPosition">
+              <PropertyRef Name="PersonId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="SysPositionSysPersonToPosition">
+          <End Type="RightsManagementSystemModel.SysPosition" Role="SysPosition" Multiplicity="1" />
+          <End Type="RightsManagementSystemModel.SysPersonToPosition" Role="SysPersonToPosition" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SysPosition">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="SysPersonToPosition">
+              <PropertyRef Name="PositionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="SysRole">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="String" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" MaxLength="50" />
+          <Property Type="String" Name="Name" Nullable="false" />
+          <Property Type="String" Name="Description" Nullable="false" />
+          <NavigationProperty Name="SysPersonOrPositionToRole" Relationship="RightsManagementSystemModel.SysPersonOrPositionToRoleSysRole" FromRole="SysRole" ToRole="SysPersonOrPositionToRole" />
+        </EntityType>
+        <EntityType Name="SysPersonOrPositionToRole">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="String" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" MaxLength="50" />
+          <Property Type="String" Name="RoleId" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="PerSonOrPositionId" Nullable="false" />
+          <NavigationProperty Name="SysRole" Relationship="RightsManagementSystemModel.SysPersonOrPositionToRoleSysRole" FromRole="SysPersonOrPositionToRole" ToRole="SysRole" />
+        </EntityType>
+        <EntityType Name="SysDepartment">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="String" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" MaxLength="50" />
+          <Property Type="String" Name="DepartmentName" Nullable="false" />
+          <Property Type="String" Name="ParentId" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Sort" Nullable="false" />
+          <Property Type="String" Name="Remark" Nullable="false" />
+          <Property Type="String" Name="Status" Nullable="false" />
+          <NavigationProperty Name="SysPosition" Relationship="RightsManagementSystemModel.SysPositionSysDepartment" FromRole="SysDepartment" ToRole="SysPosition" />
+          <NavigationProperty Name="SysDepartmentParent" Relationship="RightsManagementSystemModel.SysDepartmentSysDepartment" FromRole="SysDepartment" ToRole="SysDepartment1" />
+        </EntityType>
+        <EntityType Name="SysRoleToRights">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="String" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" MaxLength="50" />
+          <Property Type="String" Name="RoleId" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="RightsMenuID" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Operation" Nullable="false" />
+          <NavigationProperty Name="SysRightsMenu" Relationship="RightsManagementSystemModel.SysRoleToRightsSysRightsMenu" FromRole="SysRoleToRights" ToRole="SysRightsMenu" />
+        </EntityType>
+        <EntityType Name="SysRightsMenu">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="String" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" MaxLength="50" />
+          <Property Type="String" Name="Name" Nullable="false" />
+          <Property Type="String" Name="Relate" Nullable="false" />
+          <NavigationProperty Name="SysRoleToRights" Relationship="RightsManagementSystemModel.SysRoleToRightsSysRightsMenu" FromRole="SysRightsMenu" ToRole="SysRoleToRights" />
+        </EntityType>
+        <Association Name="SysPositionSysDepartment">
+          <End Type="RightsManagementSystemModel.SysPosition" Role="SysPosition" Multiplicity="*" />
+          <End Type="RightsManagementSystemModel.SysDepartment" Role="SysDepartment" Multiplicity="1" />
+          <ReferentialConstraint>
+            <Principal Role="SysDepartment">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="SysPosition">
+              <PropertyRef Name="DepartmentId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="SysPersonOrPositionToRoleSysRole">
+          <End Type="RightsManagementSystemModel.SysPersonOrPositionToRole" Role="SysPersonOrPositionToRole" Multiplicity="*" />
+          <End Type="RightsManagementSystemModel.SysRole" Role="SysRole" Multiplicity="1" />
+          <ReferentialConstraint>
+            <Principal Role="SysRole">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="SysPersonOrPositionToRole">
+              <PropertyRef Name="RoleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="SysRoleToRightsSysRightsMenu">
+          <End Type="RightsManagementSystemModel.SysRoleToRights" Role="SysRoleToRights" Multiplicity="*" />
+          <End Type="RightsManagementSystemModel.SysRightsMenu" Role="SysRightsMenu" Multiplicity="1" />
+          <ReferentialConstraint>
+            <Principal Role="SysRightsMenu">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="SysRoleToRights">
+              <PropertyRef Name="RightsMenuID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="SysPositionSysPosition">
+          <End Type="RightsManagementSystemModel.SysPosition" Role="SysPosition" Multiplicity="*" />
+          <End Type="RightsManagementSystemModel.SysPosition" Role="SysPosition1" Multiplicity="1" />
+          <ReferentialConstraint>
+            <Principal Role="SysPosition1">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="SysPosition">
+              <PropertyRef Name="ParentId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="SysDepartmentSysDepartment">
+          <End Type="RightsManagementSystemModel.SysDepartment" Role="SysDepartment" Multiplicity="*" />
+          <End Type="RightsManagementSystemModel.SysDepartment" Role="SysDepartment1" Multiplicity="1" />
+          <ReferentialConstraint>
+            <Principal Role="SysDepartment1">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="SysDepartment">
+              <PropertyRef Name="ParentId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Menu">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="String" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" MaxLength="50" />
+          <Property Type="String" Name="Name" Nullable="false" />
+          <Property Type="String" Name="ParentId" MaxLength="50" Nullable="true" />
+          <Property Type="String" Name="Url" Nullable="false" />
+          <Property Type="String" Name="Iconic" Nullable="false" />
+          <Property Type="String" Name="Sort" Nullable="false" />
+          <Property Type="String" Name="Remark" Nullable="false" />
+          <Property Type="String" Name="Status" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SystemSetting">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="String" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" MaxLength="50" />
+          <Property Type="String" Name="Name" Nullable="false" />
+          <Property Type="String" Name="Value" Nullable="false" />
+          <Property Type="String" Name="Category" Nullable="false" />
+          <Property Type="String" Name="Sort" Nullable="false" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+    <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="RightsManagementSystemModelStoreContainer" CdmEntityContainer="RightsManagementSystemEntities">
+    <EntitySetMapping Name="SysPerson">
+      <EntityTypeMapping TypeName="IsTypeOf(RightsManagementSystemModel.SysPerson)">
+        <MappingFragment StoreEntitySet="SysPerson">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Account" ColumnName="Account" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="PassWord" ColumnName="PassWord" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SysPosition">
+      <EntityTypeMapping TypeName="IsTypeOf(RightsManagementSystemModel.SysPosition)">
+        <MappingFragment StoreEntitySet="SysPosition">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="PositionId" ColumnName="PositionId" />
+          <ScalarProperty Name="PositionName" ColumnName="PositionName" />
+          <ScalarProperty Name="ParentId" ColumnName="ParentId" />
+          <ScalarProperty Name="DepartmentId" ColumnName="DepartmentId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SysPersonToPosition">
+      <EntityTypeMapping TypeName="IsTypeOf(RightsManagementSystemModel.SysPersonToPosition)">
+        <MappingFragment StoreEntitySet="SysPersonToPosition">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="PersonId" ColumnName="PersonId" />
+          <ScalarProperty Name="PositionId" ColumnName="PositionId" />
+          <ScalarProperty Name="FlagPrimacy" ColumnName="FlagPrimacy" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SysRole">
+      <EntityTypeMapping TypeName="IsTypeOf(RightsManagementSystemModel.SysRole)">
+        <MappingFragment StoreEntitySet="SysRole">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SysPersonOrPositionToRole">
+      <EntityTypeMapping TypeName="IsTypeOf(RightsManagementSystemModel.SysPersonOrPositionToRole)">
+        <MappingFragment StoreEntitySet="SysPersonOrPositionToRole">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+          <ScalarProperty Name="PerSonOrPositionId" ColumnName="PerSonOrPositionId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SysDepartment">
+      <EntityTypeMapping TypeName="IsTypeOf(RightsManagementSystemModel.SysDepartment)">
+        <MappingFragment StoreEntitySet="SysDepartment">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="DepartmentName" ColumnName="DepartmentName" />
+          <ScalarProperty Name="ParentId" ColumnName="ParentId" />
+          <ScalarProperty Name="Sort" ColumnName="Sort" />
+          <ScalarProperty Name="Remark" ColumnName="Remark" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SysRoleToRights">
+      <EntityTypeMapping TypeName="IsTypeOf(RightsManagementSystemModel.SysRoleToRights)">
+        <MappingFragment StoreEntitySet="SysRoleToRights">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+          <ScalarProperty Name="RightsMenuID" ColumnName="RightsMenuID" />
+          <ScalarProperty Name="Operation" ColumnName="Operation" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SysRightsMenu">
+      <EntityTypeMapping TypeName="IsTypeOf(RightsManagementSystemModel.SysRightsMenu)">
+        <MappingFragment StoreEntitySet="SysRightsMenu">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Relate" ColumnName="Relate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Menu">
+      <EntityTypeMapping TypeName="IsTypeOf(RightsManagementSystemModel.Menu)">
+        <MappingFragment StoreEntitySet="Menu">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ParentId" ColumnName="ParentId" />
+          <ScalarProperty Name="Url" ColumnName="Url" />
+          <ScalarProperty Name="Iconic" ColumnName="Iconic" />
+          <ScalarProperty Name="Sort" ColumnName="Sort" />
+          <ScalarProperty Name="Remark" ColumnName="Remark" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SystemSetting">
+      <EntityTypeMapping TypeName="IsTypeOf(RightsManagementSystemModel.SystemSetting)">
+        <MappingFragment StoreEntitySet="SystemSetting">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Value" ColumnName="Value" />
+          <ScalarProperty Name="Category" ColumnName="Category" />
+          <ScalarProperty Name="Sort" ColumnName="Sort" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping></edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams>
+      <Diagram Name="Model1" ShowGrid="true" DisplayType="false" >
+        <EntityTypeShape EntityType="RightsManagementSystemModel.SysPerson" Width="1.5" PointX="0.75" PointY="6.875" Height="1.9700325520833353" IsExpanded="true" />
+        <EntityTypeShape EntityType="RightsManagementSystemModel.SysPosition" Width="1.5" PointX="0.75" PointY="2.5" Height="2.5430916341145822" IsExpanded="true" />
+        <EntityTypeShape EntityType="RightsManagementSystemModel.SysPersonToPosition" Width="1.5" PointX="3" PointY="1.75" Height="2.1610522460937496" IsExpanded="true" />
+        <AssociationConnector Association="RightsManagementSystemModel.SysPerSonSysPersonToPosition">
+          <ConnectorPoint PointX="2.25" PointY="6.875" />
+          <ConnectorPoint PointX="2.625" PointY="6.5" />
+          <ConnectorPoint PointX="2.625" PointY="2.8305261230468748" />
+          <ConnectorPoint PointX="3" PointY="2.8305261230468748" />
+        </AssociationConnector>
+        <AssociationConnector Association="RightsManagementSystemModel.SysPositionSysPersonToPosition">
+          <ConnectorPoint PointX="2.25" PointY="3.4332891845703122" />
+          <ConnectorPoint PointX="2.5416666666666665" PointY="3.4332891845703117" />
+          <ConnectorPoint PointX="2.7083333333333335" PointY="3.4332891845703122" />
+          <ConnectorPoint PointX="3" PointY="3.4332891845703122" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="RightsManagementSystemModel.SysRole" Width="1.5" PointX="10" PointY="0.875" Height="1.7790128580729174" IsExpanded="true" />
+        <EntityTypeShape EntityType="RightsManagementSystemModel.SysPersonOrPositionToRole" Width="1.5" PointX="7.75" PointY="0.875" Height="1.7790128580729174" />
+        <EntityTypeShape EntityType="RightsManagementSystemModel.SysDepartment" Width="1.5" PointX="3" PointY="5.5" Height="2.5430916341145844" />
+        <EntityTypeShape EntityType="RightsManagementSystemModel.SysRoleToRights" Width="1.5" PointX="5.75" PointY="4.875" Height="1.9700325520833335" />
+        <EntityTypeShape EntityType="RightsManagementSystemModel.SysRightsMenu" Width="1.5" PointX="8" PointY="5" Height="1.7790128580729174" />
+        <AssociationConnector Association="RightsManagementSystemModel.SysPositionSysDepartment">
+          <ConnectorPoint PointX="2.25" PointY="4.980782941806889" />
+          <ConnectorPoint PointX="2.5660744349011213" PointY="5.29685737670801" />
+          <ConnectorPoint PointX="2.6839255650988791" PointY="5.4147085069057681" />
+          <ConnectorPoint PointX="2.6875" PointY="5.418282941806889" />
+          <ConnectorPoint PointX="2.6875" PointY="5.1875" />
+          <ConnectorPoint PointX="3" PointY="5.5" />
+        </AssociationConnector>
+        <AssociationConnector Association="RightsManagementSystemModel.SysPersonOrPositionToRoleSysRole">
+          <ConnectorPoint PointX="9.25" PointY="1.7645064290364587" />
+          <ConnectorPoint PointX="10" PointY="1.7645064290364587" />
+        </AssociationConnector>
+        <AssociationConnector Association="RightsManagementSystemModel.SysRoleToRightsSysRightsMenu">
+          <ConnectorPoint PointX="7.25" PointY="5.8895064290364587" />
+          <ConnectorPoint PointX="8" PointY="5.8895064290364587" />
+        </AssociationConnector>
+        <AssociationConnector Association="RightsManagementSystemModel.SysPositionSysPosition">
+          <ConnectorPoint PointX="1.2819230769230767" PointY="5.0430916341145817" />
+          <ConnectorPoint PointX="1.2819230769230767" PointY="5.2930916341145817" />
+          <ConnectorPoint PointX="1.7284615384615383" PointY="5.2930916341145817" />
+          <ConnectorPoint PointX="1.7284615384615383" PointY="5.0430916341145817" />
+        </AssociationConnector>
+        <AssociationConnector Association="RightsManagementSystemModel.SysDepartmentSysDepartment">
+          <ConnectorPoint PointX="3.5319230769230767" PointY="8.0430916341145853" />
+          <ConnectorPoint PointX="3.5319230769230767" PointY="8.2930916341145853" />
+          <ConnectorPoint PointX="3.9784615384615383" PointY="8.2930916341145853" />
+          <ConnectorPoint PointX="3.9784615384615383" PointY="8.0430916341145853" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="RightsManagementSystemModel.Menu" Width="1.5" PointX="5.75" PointY="0.75" Height="2.7341113281249996" />
+        <EntityTypeShape EntityType="RightsManagementSystemModel.SystemSetting" Width="1.5" PointX="8.75" PointY="3.25" Height="1.9700325520833326" />
+      </Diagram>
+    </Diagrams>
+  </Designer>
+</edmx:Edmx>
