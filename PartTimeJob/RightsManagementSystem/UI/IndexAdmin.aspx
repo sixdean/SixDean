@@ -12,14 +12,38 @@
     <script src="../Scripts/Public.js" type="text/javascript"></script>
     <script type="text/javascript">
         $(function () {
-            console.info("1");
+            function createOrSelectTab(title, url) {
+                if ($("#headTab").tabs("exists", title)) {
+                    $("#headTab").tabs("select", title);
+                } else {
+                    $("#headTab").tabs("add",
+                {
+                    title: title,
+                    href: url,
+                    cache: false
+                });
+                }
+            }
             $("#mainMenu").tree({
                 url: "../Ashx/AjaxGetMenu.ashx",
                 animate: true,
-                lines:true
+                lines: true,
+                onClick: function (node) {
+                    if (node.Url.length != 0) {
+                        createOrSelectTab(node.text, node.Url);
+                    }
+
+                },
+                loadFilter: function (data) {
+                    return data;
+                }
             });
-            console.info("2");
+            $("#headTab").tabs({
+                fit: true
+
+            });
         });
+
     
     </script>
 </head>
@@ -28,49 +52,10 @@
     </div>
     <div data-options="region:'west',split:true" title="导航" style="padding: 10px; width: 200px;">
         <ul id="mainMenu">
-             
         </ul>
     </div>
     <div data-options="region:'center'">
         <div id="headTab">
-            <div id="mainTabs" title="主tab">
-                <table>
-                    <tr>
-                        <td>
-                            <select id="fund_com" name="fund_com">
-                            </select>
-                        </td>
-                        <td>
-                            <select id="enddate" name="enddate">
-                            </select>
-                        </td>
-                        <td>
-                            <input type="button" value="查询" class="btnQuery">
-                        </td>
-                        <td>
-                            <button id="GetJiData" onclick=" GetJiData(); ">
-                                获取数据
-                            </button>
-                        </td>
-                    </tr>
-                </table>
-                <table id="dgFund" style="height: 400px; width: 900px;">
-                </table>
-            </div>
-            <div id="tab0" title="titleTab0">
-            </div>
-            <div id="tab1" title="titleTab1">
-            </div>
-            <div id="tab2" title="titleTab2">
-            </div>
-            <div id="tab3" title="titleTab3">
-            </div>
-            <div id="tab4" title="titleTab4">
-            </div>
-            <div id="tab5" title="titletab5">
-            </div>
-            <div id="tab6" title="titleTab6">
-            </div>
         </div>
     </div>
     <div data-options="region:'south'" style="height: 30px;">

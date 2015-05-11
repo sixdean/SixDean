@@ -666,6 +666,10 @@
     <Content Include="Scripts\jquery-1.4.1.js" />
     <Content Include="Scripts\jquery-1.4.1.min.js" />
     <Content Include="UI\IndexAdmin.aspx" />
+    <Content Include="UI\TabUI\HTMLPage1.htm" />
+    <Content Include="UI\TabUI\HTMLPage2.htm" />
+    <Content Include="UI\TabUI\HTMLPage3.htm" />
+    <Content Include="UI\TabUI\WebForm1.aspx" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -742,6 +746,13 @@
     </Compile>
     <Compile Include="UI\IndexAdmin.aspx.designer.cs">
       <DependentUpon>IndexAdmin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\TabUI\WebForm1.aspx.cs">
+      <DependentUpon>WebForm1.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\TabUI\WebForm1.aspx.designer.cs">
+      <DependentUpon>WebForm1.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
