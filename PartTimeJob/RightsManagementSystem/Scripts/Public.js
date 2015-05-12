@@ -28,3 +28,5 @@ this.SetAjax = function (url, strdata, datatypes, callback) {
         }
     });
 }
+
+

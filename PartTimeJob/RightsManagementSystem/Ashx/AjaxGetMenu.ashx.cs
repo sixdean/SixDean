@@ -19,14 +19,21 @@ namespace RightsManagementSystem.Ashx
             var id = context.Request["id"] ?? "";
             var rmsEntities = new RightsManagementSystemEntities();
             var obj = from a in rmsEntities.Menu
+                      join b in rmsEntities.Menu on a.ParentId equals b.ID into ab
+                      from b in ab.DefaultIfEmpty()
                       where (a.ParentId == id || (id == "" && string.IsNullOrEmpty(a.ParentId)))
+                      orderby a.Sort ascending
                       select new MainMenu()
                           {
                               id = a.ID,
                               text = a.Name,
                               Url = a.Url,
                               ParentId = a.ParentId,
-                              state = a.Status != "1" ? "open" : "closed"
+                              state = a.Status != "1" ? "open" : "closed",
+                              Iconic = a.Iconic,
+                              Sort = a.Sort,
+                              Remark = a.Remark,
+                              ParentName = b.Name
                           };
             context.Response.Write(JsonConvert.SerializeObject(obj));
         }
@@ -46,7 +53,10 @@ namespace RightsManagementSystem.Ashx
             public string Url { get; set; }
             public string ParentId { get; set; }
             public string state { get; set; }
-
+            public string Iconic { get; set; }
+            public string Sort { get; set; }
+            public string Remark { get; set; }
+            public string ParentName { get; set; }
         }
     }
 }

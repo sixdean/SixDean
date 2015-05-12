@@ -790,6 +790,7 @@
     <None Include="Scripts\jquery-easyui-1.4.1\demo\treegrid\treegrid_data3.json" />
     <None Include="Scripts\jquery-easyui-1.4.1\demo\tree\tree_data1.json" />
     <None Include="Scripts\jquery-easyui-1.4.1\demo\tree\tree_data2.json" />
+    <None Include="UI\TabUI\treegrid_data1.json" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />

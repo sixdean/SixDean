@@ -4,6 +4,57 @@
     <title></title>
 </head>
 <body>
-dsalfjdlateatafjdl
+    <h2>
+        TreeGrid Lines</h2>
+    <p>
+        This example shows how to show treegrid lines.</p>
+    <div style="margin: 20px 0;">
+    </div>
+    <table class="easyui-treegrid" style="width: 60%" data-options="
+				url: '../Ashx/AjaxGetMenu.ashx',
+				method: 'get',
+				lines: true,
+				rownumbers: true,
+				idField: 'id',
+				treeField: 'text',
+                striped:true,
+                toolbar: [{
+		iconCls: 'icon-edit',
+		handler: function(){alert('edit')}
+	},'-',{
+		iconCls: 'icon-help',
+		handler: function(){alert('help')}
+	}]
+			">
+        <thead>
+            <tr>
+                <th data-options="field:'text',width:522">
+                    菜单名
+                </th>
+                <th data-options="field:'ParentName'">
+                    父级名称
+                </th>
+                <th data-options="field:'Url'">
+                    URL地址
+                </th>
+                <th data-options="field:'Iconic'">
+                    图标
+                </th>
+                <th data-options="field:'Sort'">
+                    排序
+                </th>
+                <th data-options="field:'Remark'">
+                    备注
+                </th>
+               <th data-options="field:'Sort',width:220,formatter:formatProgress,editor:'numberbox'">Progress</th>
+            </tr>
+        </thead>
+    </table>
+    <script type="text/javascript">
+        function formatProgress(value) {
+            console.info(value);
+            return 'dfasf';
+        }
+    </script>
 </body>
 </html>

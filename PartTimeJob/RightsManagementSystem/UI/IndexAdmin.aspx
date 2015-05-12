@@ -24,6 +24,10 @@
                 });
                 }
             }
+            function formatProgress(value) {
+                console.info(value);
+                return 'dfasf';
+            }
             $("#mainMenu").tree({
                 url: "../Ashx/AjaxGetMenu.ashx",
                 animate: true,
@@ -43,7 +47,6 @@
 
             });
         });
-
     
     </script>
 </head>

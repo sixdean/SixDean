@@ -1,0 +1,4 @@
+G:\code\SixDean\PartTimeJob\PartTimeJob\bin\PartTimeJob.dll
+G:\code\SixDean\PartTimeJob\PartTimeJob\bin\PartTimeJob.pdb
+G:\code\SixDean\PartTimeJob\PartTimeJob\obj\Debug\PartTimeJob.dll
+G:\code\SixDean\PartTimeJob\PartTimeJob\obj\Debug\PartTimeJob.pdb

@@ -1,6 +1,5 @@
 G:\code\SixDean\PartTimeJob\RightsManagementSystem\bin\RightsManagementSystem.dll
 G:\code\SixDean\PartTimeJob\RightsManagementSystem\bin\RightsManagementSystem.pdb
 G:\code\SixDean\PartTimeJob\RightsManagementSystem\bin\Newtonsoft.Json.dll
-G:\code\SixDean\PartTimeJob\RightsManagementSystem\obj\Debug\RightsManagementSystem.csprojResolveAssemblyReference.cache
 G:\code\SixDean\PartTimeJob\RightsManagementSystem\obj\Debug\RightsManagementSystem.dll
 G:\code\SixDean\PartTimeJob\RightsManagementSystem\obj\Debug\RightsManagementSystem.pdb

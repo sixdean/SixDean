@@ -1,0 +1,4 @@
+G:\code\SixDean\PartTimeJob\TestWeb\bin\TestWeb.dll
+G:\code\SixDean\PartTimeJob\TestWeb\bin\TestWeb.pdb
+G:\code\SixDean\PartTimeJob\TestWeb\obj\Debug\TestWeb.dll
+G:\code\SixDean\PartTimeJob\TestWeb\obj\Debug\TestWeb.pdb
