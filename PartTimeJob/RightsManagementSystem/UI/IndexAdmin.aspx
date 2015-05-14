@@ -10,6 +10,8 @@
         type="text/css" />
     <link href="../Scripts/jquery-easyui-1.4.1/themes/icon.css" rel="stylesheet" type="text/css" />
     <script src="../Scripts/Public.js" type="text/javascript"></script>
+    <link href="../style/syExtCss.css" rel="stylesheet" type="text/css" />
+    <link href="../style/syExtIcon.css" rel="stylesheet" type="text/css" />
     <script type="text/javascript">
         $(function () {
             function createOrSelectTab(title, url) {

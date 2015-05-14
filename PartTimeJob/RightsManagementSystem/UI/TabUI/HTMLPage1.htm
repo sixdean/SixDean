@@ -7,9 +7,12 @@
     <h2>
         TreeGrid Lines</h2>
     <p>
-        This example shows how to show treegrid lines.</p>
+        This example shows how to show treegrid lines.
+    </p>
     <div style="margin: 20px 0;">
     </div>
+    <link href="../../style/syExtIcon.css" rel="stylesheet" type="text/css" />
+    <link href="../../style/syExtCss.css" rel="stylesheet" type="text/css" />
     <table class="easyui-treegrid" style="width: 60%" data-options="
 				url: '../Ashx/AjaxGetMenu.ashx',
 				method: 'get',
@@ -46,14 +49,115 @@
                 <th data-options="field:'Remark'">
                     备注
                 </th>
-               <th data-options="field:'Sort',width:220,formatter:formatProgress,editor:'numberbox'">Progress</th>
+                <th data-options="field:'action',width:220,formatter : formatProgress">
+                    操作
+                </th>
             </tr>
         </thead>
     </table>
+    <div id="dialog1" style="display: none;">
+        <form id="form1" method="POST">
+        <h2 style="text-align: center">
+            菜单信息
+        </h2>
+        <table>
+            <tr>
+                <th>
+                    菜单名
+                </th>
+                <td>
+                    <input name="text" />
+                </td>
+                <th>
+                    父级菜单名
+                </th>
+                <td>
+                    <input name="parentName" />
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    Url地址
+                </th>
+                <td>
+                    <input name="Url" />
+                </td>
+                <th>
+                    图标
+                </th>
+                <td>
+                    <input name="Iconic" />
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    排序
+                </th>
+                <td>
+                    <input name="Sort" />
+                </td>
+                <th>
+                    备注
+                </th>
+                <td>
+                    <input name="Remark" id="Remark" />
+                </td>
+            </tr>
+        </table>
+        </form>
+    </div>
     <script type="text/javascript">
-        function formatProgress(value) {
-            console.info(value);
-            return 'dfasf';
+        function showFun(row) {
+            row = JSON.parse(unescape(row));
+            var dialog = $("#dialog1").dialog({
+                title: "查看菜单信息",
+                width: 500,
+                height: 300,
+                buttons: [
+                {
+                    text: "Save",
+                    handler: function () {
+                        alert("保存");
+                    }
+                }, {
+                    text: "Close",
+                    handler: function () {
+                        $("#dialog1").dialog("close");
+
+                    }
+
+                }
+                ],
+                onBeforeOpen: function () {
+                    $("#form1").form("load", {
+                        "text": row.text,
+                        "parentName": row.parentName,
+                        "Url": row.Url,
+                        "Iconic": row.Iconic,
+                        "Sort": row.Sort,
+                        "Remark": row.Remark
+                    });
+                }
+            });
+            $("#dialog1").show();
+        }
+
+        function editFun(row) {
+
+        }
+
+        function removeFun(row) {
+
+        }
+        function formatProgress(value, row) {
+            var str = "";
+            var val = escape(JSON.stringify(row));
+            str += "<input type=\"button\" class=\"iconImg icon-tip\" title=\"查看\"  onclick=\"showFun('" + val + " ');\"/>";
+            str += "<input type=\"button\" class=\"iconImg icon-edit\" title=\"编辑\" onclick=\"editFun('" + row + "');\"/>";
+            str += "<input type=\"button\" class=\"iconImg icon-clear\" title=\"删除\" onclick=\"removeFun('" + row + "');\"/>";
+
+
+            return str;
         }
     </script>
 </body>

@@ -1,3 +1,8 @@
+.iconImg {
+	width: 16px;
+	height: 16px;
+	cursor: pointer;
+}
 .icon-blank{
 	background:url('icons/blank.gif') no-repeat center center;
 }
