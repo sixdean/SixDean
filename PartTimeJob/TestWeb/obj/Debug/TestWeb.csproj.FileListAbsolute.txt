@@ -2,3 +2,8 @@ G:\code\SixDean\PartTimeJob\TestWeb\bin\TestWeb.dll
 G:\code\SixDean\PartTimeJob\TestWeb\bin\TestWeb.pdb
 G:\code\SixDean\PartTimeJob\TestWeb\obj\Debug\TestWeb.dll
 G:\code\SixDean\PartTimeJob\TestWeb\obj\Debug\TestWeb.pdb
+F:\personal\SixDean\PartTimeJob\TestWeb\obj\Debug\TestWeb.csprojResolveAssemblyReference.cache
+F:\personal\SixDean\PartTimeJob\TestWeb\obj\Debug\TestWeb.dll
+F:\personal\SixDean\PartTimeJob\TestWeb\obj\Debug\TestWeb.pdb
+F:\personal\SixDean\PartTimeJob\TestWeb\bin\TestWeb.dll
+F:\personal\SixDean\PartTimeJob\TestWeb\bin\TestWeb.pdb
