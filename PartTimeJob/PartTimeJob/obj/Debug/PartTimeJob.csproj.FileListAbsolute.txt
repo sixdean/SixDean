@@ -7,3 +7,4 @@ F:\personal\SixDean\PartTimeJob\PartTimeJob\bin\PartTimeJob.pdb
 F:\personal\SixDean\PartTimeJob\PartTimeJob\obj\Debug\PartTimeJob.csprojResolveAssemblyReference.cache
 F:\personal\SixDean\PartTimeJob\PartTimeJob\obj\Debug\PartTimeJob.dll
 F:\personal\SixDean\PartTimeJob\PartTimeJob\obj\Debug\PartTimeJob.pdb
+G:\code\SixDean\PartTimeJob\PartTimeJob\obj\Debug\PartTimeJob.csprojResolveAssemblyReference.cache

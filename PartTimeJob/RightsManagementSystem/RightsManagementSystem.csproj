@@ -70,6 +70,44 @@
       <DependentUpon>RightsManagementSystem.mdf</DependentUpon>
     </Content>
     <Content Include="Entity\Model1.edmx.sql" />
+    <Content Include="Scripts\jeasyui-extensions\images\invalid_line.gif" />
+    <Content Include="Scripts\jeasyui-extensions\jeasyui.extensions.combo.js" />
+    <Content Include="Scripts\jeasyui-extensions\jeasyui.extensions.combobox.js" />
+    <Content Include="Scripts\jeasyui-extensions\jeasyui.extensions.combogrid.js" />
+    <Content Include="Scripts\jeasyui-extensions\jeasyui.extensions.combotree.js" />
+    <Content Include="Scripts\jeasyui-extensions\jeasyui.extensions.css" />
+    <Content Include="Scripts\jeasyui-extensions\jeasyui.extensions.datagrid.js" />
+    <Content Include="Scripts\jeasyui-extensions\jeasyui.extensions.dialog.js" />
+    <Content Include="Scripts\jeasyui-extensions\jeasyui.extensions.form.js" />
+    <Content Include="Scripts\jeasyui-extensions\jeasyui.extensions.gridselector.js" />
+    <Content Include="Scripts\jeasyui-extensions\jeasyui.extensions.icons.js" />
+    <Content Include="Scripts\jeasyui-extensions\jeasyui.extensions.js" />
+    <Content Include="Scripts\jeasyui-extensions\jeasyui.extensions.layout.js" />
+    <Content Include="Scripts\jeasyui-extensions\jeasyui.extensions.linkbutton.js" />
+    <Content Include="Scripts\jeasyui-extensions\jeasyui.extensions.menu.js" />
+    <Content Include="Scripts\jeasyui-extensions\jeasyui.extensions.panel.js" />
+    <Content Include="Scripts\jeasyui-extensions\jeasyui.extensions.progressbar.js" />
+    <Content Include="Scripts\jeasyui-extensions\jeasyui.extensions.searchbox.js" />
+    <Content Include="Scripts\jeasyui-extensions\jeasyui.extensions.slider.js" />
+    <Content Include="Scripts\jeasyui-extensions\jeasyui.extensions.tabs.js" />
+    <Content Include="Scripts\jeasyui-extensions\jeasyui.extensions.theme.js" />
+    <Content Include="Scripts\jeasyui-extensions\jeasyui.extensions.tree.js" />
+    <Content Include="Scripts\jeasyui-extensions\jeasyui.extensions.treegrid.js" />
+    <Content Include="Scripts\jeasyui-extensions\jeasyui.extensions.validatebox.js" />
+    <Content Include="Scripts\jeasyui-extensions\jeasyui.extensions.window.js" />
+    <Content Include="Scripts\jeasyui-extensions\jquery-easyui-portal\jquery.portal.bak.js" />
+    <Content Include="Scripts\jeasyui-extensions\jquery-easyui-portal\portal.bak.css" />
+    <Content Include="Scripts\jeasyui-extensions\jquery-easyui-portal\portal.css" />
+    <Content Include="Scripts\jeasyui-extensions\jquery-easyui-portal\portal.html" />
+    <Content Include="Scripts\jeasyui-extensions\jquery-easyui-portal\readme.txt" />
+    <Content Include="Scripts\jeasyui-extensions\jquery.codemirror.js" />
+    <Content Include="Scripts\jeasyui-extensions\jquery.comboicons.js" />
+    <Content Include="Scripts\jeasyui-extensions\jquery.comboselector.js" />
+    <Content Include="Scripts\jeasyui-extensions\jquery.euploadify.js" />
+    <Content Include="Scripts\jeasyui-extensions\jquery.my97.js" />
+    <Content Include="Scripts\jeasyui-extensions\jquery.portal.js" />
+    <Content Include="Scripts\jeasyui-extensions\jquery.toolbar.js" />
+    <Content Include="Scripts\jeasyui-extensions\jquery.ueditor.js" />
     <Content Include="Scripts\jquery-easyui-1.4.1\changelog.txt" />
     <Content Include="Scripts\jquery-easyui-1.4.1\datagrid-scrollview.js" />
     <Content Include="Scripts\jquery-easyui-1.4.1\demo\accordion\actions.html" />
@@ -658,13 +696,17 @@
     <Content Include="Scripts\jquery-easyui-1.4.1\themes\metro\tree.css" />
     <Content Include="Scripts\jquery-easyui-1.4.1\themes\metro\validatebox.css" />
     <Content Include="Scripts\jquery-easyui-1.4.1\themes\metro\window.css" />
+    <Content Include="Scripts\jquery.jdirk.js" />
+    <Content Include="Scripts\jquery\jquery-1.11.1.js" />
+    <Content Include="Scripts\jquery\jquery-1.11.1.min.js" />
+    <Content Include="Scripts\jquery\jquery-2.1.1.js" />
+    <Content Include="Scripts\jquery\jquery-2.1.1.min.js" />
+    <Content Include="Scripts\jquery\jquery-migrate-1.2.1.js" />
+    <Content Include="Scripts\jquery\jquery-migrate-1.2.1.min.js" />
     <Content Include="Scripts\Public.js" />
     <Content Include="Styles\Site.css" />
     <Content Include="Default.aspx" />
     <Content Include="Global.asax" />
-    <Content Include="Scripts\jquery-1.4.1-vsdoc.js" />
-    <Content Include="Scripts\jquery-1.4.1.js" />
-    <Content Include="Scripts\jquery-1.4.1.min.js" />
     <Content Include="style\images\alipay.jpg" />
     <Content Include="style\images\blue_face\bluefaces_01.png" />
     <Content Include="style\images\blue_face\bluefaces_02.png" />
@@ -1774,6 +1816,9 @@
     <Compile Include="Account\Register.aspx.designer.cs">
       <DependentUpon>Register.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Ashx\AjaxEditMenu.ashx.cs">
+      <DependentUpon>AjaxEditMenu.ashx</DependentUpon>
+    </Compile>
     <Compile Include="Ashx\AjaxGetMenu.ashx.cs">
       <DependentUpon>AjaxGetMenu.ashx</DependentUpon>
     </Compile>
@@ -1792,6 +1837,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Model\MainMenu.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Site.Master.cs">
       <DependentUpon>Site.Master</DependentUpon>
@@ -1831,6 +1877,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Ashx\AjaxGetMenu.ashx" />
+    <Content Include="Ashx\AjaxEditMenu.ashx" />
+    <None Include="Scripts\jeasyui-extensions\jquery-easyui-portal\datagrid_data.json" />
     <None Include="Scripts\jquery-easyui-1.4.1\demo\accordion\datagrid_data1.json" />
     <None Include="Scripts\jquery-easyui-1.4.1\demo\combobox\combobox_data1.json" />
     <None Include="Scripts\jquery-easyui-1.4.1\demo\combobox\combobox_data2.json" />
@@ -1850,6 +1898,8 @@
     <None Include="Scripts\jquery-easyui-1.4.1\demo\treegrid\treegrid_data3.json" />
     <None Include="Scripts\jquery-easyui-1.4.1\demo\tree\tree_data1.json" />
     <None Include="Scripts\jquery-easyui-1.4.1\demo\tree\tree_data2.json" />
+    <None Include="Scripts\jquery\jquery-1.11.1.min.map" />
+    <None Include="Scripts\jquery\jquery-2.1.1.min.map" />
     <None Include="style\icons.jsp" />
     <None Include="UI\TabUI\treegrid_data1.json" />
   </ItemGroup>

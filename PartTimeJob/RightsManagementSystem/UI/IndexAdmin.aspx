@@ -4,14 +4,19 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title></title>
-    <script src="../Scripts/jquery-1.4.1.min.js" type="text/javascript"></script>
+    <script src="../Scripts/jquery/jquery-1.11.1.js" type="text/javascript"></script>
     <script src="../Scripts/jquery-easyui-1.4.1/jquery.easyui.min.js" type="text/javascript"></script>
     <link href="../Scripts/jquery-easyui-1.4.1/themes/default/easyui.css" rel="stylesheet"
         type="text/css" />
+    <script src="../Scripts/jquery.jdirk.js" type="text/javascript"></script>
     <link href="../Scripts/jquery-easyui-1.4.1/themes/icon.css" rel="stylesheet" type="text/css" />
     <script src="../Scripts/Public.js" type="text/javascript"></script>
     <link href="../style/syExtCss.css" rel="stylesheet" type="text/css" />
     <link href="../style/syExtIcon.css" rel="stylesheet" type="text/css" />
+    <script src="../Scripts/jeasyui-extensions/jeasyui.extensions.js" type="text/javascript"></script>
+    <link href="../Scripts/jeasyui-extensions/jeasyui.extensions.css" rel="stylesheet"
+        type="text/css" />
+    <script src="../Scripts/jeasyui-extensions/jeasyui.extensions.form.js" type="text/javascript"></script>
     <script type="text/javascript">
         $(function () {
             function createOrSelectTab(title, url) {

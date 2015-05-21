@@ -2,3 +2,5 @@ F:\personal\SixDean\PartTimeJob\TestCon\bin\Debug\TestCon.exe
 F:\personal\SixDean\PartTimeJob\TestCon\bin\Debug\TestCon.pdb
 F:\personal\SixDean\PartTimeJob\TestCon\obj\x86\Debug\TestCon.exe
 F:\personal\SixDean\PartTimeJob\TestCon\obj\x86\Debug\TestCon.pdb
+G:\code\SixDean\PartTimeJob\TestCon\obj\x86\Debug\TestCon.exe
+G:\code\SixDean\PartTimeJob\TestCon\obj\x86\Debug\TestCon.pdb

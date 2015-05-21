@@ -31,7 +31,7 @@
 			">
         <thead>
             <tr>
-                <th data-options="field:'text',width:522">
+                <th data-options="field:'text'">
                     菜单名
                 </th>
                 <th data-options="field:'ParentName'">
@@ -49,7 +49,7 @@
                 <th data-options="field:'Remark'">
                     备注
                 </th>
-                <th data-options="field:'action',width:220,formatter : formatProgress">
+                <th data-options="field:'action',formatter : formatProgress">
                     操作
                 </th>
             </tr>
@@ -73,6 +73,7 @@
                 </th>
                 <td>
                     <input name="parentName" />
+                    <input name="parentId" style="display: none" />
                 </td>
             </tr>
             <tr>
@@ -143,18 +144,72 @@
         }
 
         function editFun(row) {
-
+            row = JSON.parse(unescape(row));
+            var dialog = $("#dialog1").dialog({
+                title: "查看菜单信息",
+                width: 500,
+                height: 300,
+                toolbar: [
+                {
+                    text: "Edit",
+                    iconCls: "icon-edit",
+                    handler: function () {
+                        alert("edit");
+                    }
+                }, {
+                    text: "Help",
+                    iconCls: "icon-help",
+                    handler: function () {
+                        alert("help");
+                    }
+                }],
+                buttons: [
+                {
+                    text: "Save",
+                    iconCls: "icon-ok",
+                    handler: function () {
+                        $("#form1").form("submit", {
+                            url: "../../Ashx/AjaxEditMenu.ashx",
+                            onSubmit: function (param) {
+                                var data = $("#form1").form("getData");
+                                param.p = JSON.stringify(data);
+                            },
+                            success: function (data) {
+                                console.info(data);
+                            }
+                        });
+                    }
+                }, {
+                    text: "Close",
+                    iconCls: "icon-cancel",
+                    handler: function () {
+                        $("#dialog1").dialog("close");
+                    }
+                }
+                ],
+                onBeforeOpen: function () {
+                    $("#form1").form("load", {
+                        "text": row.text,
+                        "parentName": row.parentName,
+                        "Url": row.Url,
+                        "Iconic": row.Iconic,
+                        "Sort": row.Sort,
+                        "Remark": row.Remark
+                    });
+                }
+            });
+            $("#dialog1").show();
         }
 
-        function removeFun(row) {
-
+        function removeFun(id) {
+            alert(id);
         }
         function formatProgress(value, row) {
             var str = "";
             var val = escape(JSON.stringify(row));
-            str += "<input type=\"button\" class=\"iconImg icon-tip\" title=\"查看\"  onclick=\"showFun('" + val + " ');\"/>";
-            str += "<input type=\"button\" class=\"iconImg icon-edit\" title=\"编辑\" onclick=\"editFun('" + row + "');\"/>";
-            str += "<input type=\"button\" class=\"iconImg icon-clear\" title=\"删除\" onclick=\"removeFun('" + row + "');\"/>";
+            var id = row.id;
+            str += "<input type=\"button\" class=\"iconImg icon-edit\" title=\"编辑\" onclick=\"editFun('" + val + "');\"/>";
+            str += "<input type=\"button\" class=\"iconImg icon-clear\" title=\"删除\" onclick=\"removeFun('" + id + "');\"/>";
 
 
             return str;
