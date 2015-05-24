@@ -37,8 +37,12 @@
       <End Role="SysDepartment" EntitySet="SysDepartment" />
       <End Role="SysDepartment1" EntitySet="SysDepartment" />
     </AssociationSet>
-    <EntitySet Name="Menu" EntityType="RightsManagementSystemModel.Menu" />
+    <EntitySet Name="SysMenu" EntityType="RightsManagementSystemModel.SysMenu" />
     <EntitySet Name="SystemSetting" EntityType="RightsManagementSystemModel.SystemSetting" />
+    <AssociationSet Name="SysMenuSysMenu" Association="RightsManagementSystemModel.SysMenuSysMenu">
+      <End Role="SysMenu" EntitySet="SysMenu" />
+      <End Role="SysMenu1" EntitySet="SysMenu" />
+    </AssociationSet>
   </EntityContainer>
   <EntityType Name="SysPerson">
     <Key>
@@ -208,7 +212,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <EntityType Name="Menu">
+  <EntityType Name="SysMenu">
     <Key>
       <PropertyRef Name="ID" />
     </Key>
@@ -220,6 +224,7 @@
     <Property Type="String" Name="Sort" Nullable="false" />
     <Property Type="String" Name="Remark" Nullable="false" />
     <Property Type="String" Name="Status" Nullable="false" />
+    <NavigationProperty Name="SysMenuParent" Relationship="RightsManagementSystemModel.SysMenuSysMenu" FromRole="SysMenu" ToRole="SysMenu1" />
   </EntityType>
   <EntityType Name="SystemSetting">
     <Key>
@@ -231,4 +236,16 @@
     <Property Type="String" Name="Category" Nullable="false" />
     <Property Type="String" Name="Sort" Nullable="false" />
   </EntityType>
+  <Association Name="SysMenuSysMenu">
+    <End Type="RightsManagementSystemModel.SysMenu" Role="SysMenu" Multiplicity="*" />
+    <End Type="RightsManagementSystemModel.SysMenu" Role="SysMenu1" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="SysMenu1">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="SysMenu">
+        <PropertyRef Name="ParentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
 </Schema>

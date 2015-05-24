@@ -9,7 +9,7 @@
     <EntitySet Name="SysDepartment" EntityType="RightsManagementSystemModel.Store.SysDepartment" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="SysRoleToRights" EntityType="RightsManagementSystemModel.Store.SysRoleToRights" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="SysRightsMenu" EntityType="RightsManagementSystemModel.Store.SysRightsMenu" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="Menu" EntityType="RightsManagementSystemModel.Store.Menu" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="SysMenu" EntityType="RightsManagementSystemModel.Store.SysMenu" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="SystemSetting" EntityType="RightsManagementSystemModel.Store.SystemSetting" store:Type="Tables" Schema="dbo" />
     <AssociationSet Name="SysPerSonSysPersonToPosition" Association="RightsManagementSystemModel.Store.SysPerSonSysPersonToPosition">
       <End Role="SysPerSon" EntitySet="SysPerson" />
@@ -112,7 +112,7 @@
     <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
     <Property Name="Relate" Type="nvarchar(max)" Nullable="false" />
   </EntityType>
-  <EntityType Name="Menu">
+  <EntityType Name="SysMenu">
     <Key>
       <PropertyRef Name="ID" />
     </Key>

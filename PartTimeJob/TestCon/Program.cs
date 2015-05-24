@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
+using TestCon.BLL;
 
 namespace TestCon
 {
@@ -9,10 +10,12 @@ namespace TestCon
     {
         private static void Main(string[] args)
         {
-            if (args == null) throw new ArgumentNullException("args");
-            ValidateArrayElement2();
-            ValidateArrayElement();
-            ValidateHashSet();
+            var menu = new Menu();
+            var list = menu.GetListMenus();
+            foreach (var menu1 in list)
+            {
+                Console.WriteLine(menu1.Name);
+            }
             Console.ReadKey();
         }
 

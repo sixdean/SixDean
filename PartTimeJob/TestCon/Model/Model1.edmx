@@ -1,0 +1,235 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="RightsManagementSystem1Model.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="RightsManagementSystem1ModelStoreContainer">
+          <EntitySet Name="Menu" EntityType="RightsManagementSystem1Model.Store.Menu" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="SysDepartment" EntityType="RightsManagementSystem1Model.Store.SysDepartment" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="SysPerson" EntityType="RightsManagementSystem1Model.Store.SysPerson" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="FK_MenuMenu" Association="RightsManagementSystem1Model.Store.FK_MenuMenu">
+            <End Role="Menu" EntitySet="Menu" />
+            <End Role="Menu1" EntitySet="Menu" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SysDepartmentSysDepartment" Association="RightsManagementSystem1Model.Store.FK_SysDepartmentSysDepartment">
+            <End Role="SysDepartment" EntitySet="SysDepartment" />
+            <End Role="SysDepartment1" EntitySet="SysDepartment" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Menu">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="ParentId" Type="nvarchar" MaxLength="50" />
+          <Property Name="Url" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Iconic" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Sort" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Remark" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Status" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SysDepartment">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="DepartmentName" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="ParentId" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="Sort" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Remark" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Status" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SysPerson">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="Account" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="PassWord" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_MenuMenu">
+          <End Role="Menu" Type="RightsManagementSystem1Model.Store.Menu" Multiplicity="0..1" />
+          <End Role="Menu1" Type="RightsManagementSystem1Model.Store.Menu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Menu">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Menu1">
+              <PropertyRef Name="ParentId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SysDepartmentSysDepartment">
+          <End Role="SysDepartment" Type="RightsManagementSystem1Model.Store.SysDepartment" Multiplicity="1" />
+          <End Role="SysDepartment1" Type="RightsManagementSystem1Model.Store.SysDepartment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SysDepartment">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="SysDepartment1">
+              <PropertyRef Name="ParentId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="RightsManagementSystem1Model" Alias="Self" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="RightsManagementSystem1Entities">
+          <EntitySet Name="Menu" EntityType="RightsManagementSystem1Model.Menu" />
+          <AssociationSet Name="FK_MenuMenu" Association="RightsManagementSystem1Model.FK_MenuMenu">
+            <End Role="Menu" EntitySet="Menu" />
+            <End Role="Menu1" EntitySet="Menu" />
+          </AssociationSet>
+          <EntitySet Name="SysDepartment" EntityType="RightsManagementSystem1Model.SysDepartment" />
+          <EntitySet Name="SysPerson" EntityType="RightsManagementSystem1Model.SysPerson" />
+          <AssociationSet Name="FK_SysDepartmentSysDepartment" Association="RightsManagementSystem1Model.FK_SysDepartmentSysDepartment">
+            <End Role="SysDepartment" EntitySet="SysDepartment" />
+            <End Role="SysDepartment1" EntitySet="SysDepartment" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Menu">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="Url" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="Iconic" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="Sort" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="Remark" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="Status" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="Menu1" Relationship="RightsManagementSystem1Model.FK_MenuMenu" FromRole="Menu" ToRole="Menu1" />
+          <NavigationProperty Name="Menu2" Relationship="RightsManagementSystem1Model.FK_MenuMenu" FromRole="Menu1" ToRole="Menu" />
+        </EntityType>
+        <Association Name="FK_MenuMenu">
+          <End Role="Menu" Type="RightsManagementSystem1Model.Menu" Multiplicity="0..1" />
+          <End Role="Menu1" Type="RightsManagementSystem1Model.Menu" Multiplicity="*" />
+        </Association>
+        <EntityType Name="SysDepartment">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="String" Name="ID" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="DepartmentName" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Sort" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Remark" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Status" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="SysDepartment1" Relationship="RightsManagementSystem1Model.FK_SysDepartmentSysDepartment" FromRole="SysDepartment" ToRole="SysDepartment1" />
+          <NavigationProperty Name="SysDepartment2" Relationship="RightsManagementSystem1Model.FK_SysDepartmentSysDepartment" FromRole="SysDepartment1" ToRole="SysDepartment" />
+        </EntityType>
+        <EntityType Name="SysPerson">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="String" Name="ID" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Account" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="PassWord" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <Association Name="FK_SysDepartmentSysDepartment">
+          <End Type="RightsManagementSystem1Model.SysDepartment" Role="SysDepartment" Multiplicity="1" />
+          <End Type="RightsManagementSystem1Model.SysDepartment" Role="SysDepartment1" Multiplicity="*" />
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="RightsManagementSystem1ModelStoreContainer" CdmEntityContainer="RightsManagementSystem1Entities">
+          <EntitySetMapping Name="Menu">
+            <EntityTypeMapping TypeName="RightsManagementSystem1Model.Menu">
+              <MappingFragment StoreEntitySet="Menu">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Url" ColumnName="Url" />
+                <ScalarProperty Name="Iconic" ColumnName="Iconic" />
+                <ScalarProperty Name="Sort" ColumnName="Sort" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="FK_MenuMenu" TypeName="RightsManagementSystem1Model.FK_MenuMenu" StoreEntitySet="Menu">
+            <EndProperty Name="Menu">
+              <ScalarProperty Name="ID" ColumnName="ParentId" />
+            </EndProperty>
+            <EndProperty Name="Menu1">
+              <ScalarProperty Name="ID" ColumnName="ID" />
+            </EndProperty>
+            <Condition ColumnName="ParentId" IsNull="false" />
+          </AssociationSetMapping>
+          <EntitySetMapping Name="SysDepartment">
+            <EntityTypeMapping TypeName="RightsManagementSystem1Model.SysDepartment">
+              <MappingFragment StoreEntitySet="SysDepartment">
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+                <ScalarProperty Name="Sort" ColumnName="Sort" />
+                <ScalarProperty Name="DepartmentName" ColumnName="DepartmentName" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SysPerson">
+            <EntityTypeMapping TypeName="RightsManagementSystem1Model.SysPerson">
+              <MappingFragment StoreEntitySet="SysPerson">
+                <ScalarProperty Name="PassWord" ColumnName="PassWord" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Account" ColumnName="Account" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="FK_SysDepartmentSysDepartment" TypeName="RightsManagementSystem1Model.FK_SysDepartmentSysDepartment" StoreEntitySet="SysDepartment">
+            <EndProperty Name="SysDepartment1">
+              <ScalarProperty Name="ID" ColumnName="ID" />
+            </EndProperty>
+            <EndProperty Name="SysDepartment">
+              <ScalarProperty Name="ID" ColumnName="ParentId" />
+            </EndProperty>
+          </AssociationSetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="False" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="无" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams>
+      <Diagram Name="Model1">
+        <EntityTypeShape EntityType="RightsManagementSystem1Model.Menu" Width="1.5" PointX="0.75" PointY="0.75" Height="2.7341113281249996" IsExpanded="true" />
+        <AssociationConnector Association="RightsManagementSystem1Model.FK_MenuMenu" ManuallyRouted="false">
+          <ConnectorPoint PointX="1.2819230769230767" PointY="3.4841113281249996" />
+          <ConnectorPoint PointX="1.2819230769230767" PointY="3.7341113281249996" />
+          <ConnectorPoint PointX="1.7284615384615383" PointY="3.7341113281249996" />
+          <ConnectorPoint PointX="1.7284615384615383" PointY="3.4841113281249996" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="RightsManagementSystem1Model.SysDepartment" Width="1.5" PointX="3.75" PointY="0.75" Height="2.3520719401041656" />
+        <EntityTypeShape EntityType="RightsManagementSystem1Model.SysPerson" Width="1.5" PointX="0.75" PointY="4.75" Height="1.7790128580729174" />
+        <AssociationConnector Association="RightsManagementSystem1Model.FK_SysDepartmentSysDepartment" >
+          <ConnectorPoint PointX="4.2819230769230767" PointY="3.1020719401041656" />
+          <ConnectorPoint PointX="4.2819230769230767" PointY="3.3520719401041656" />
+          <ConnectorPoint PointX="4.7284615384615378" PointY="3.3520719401041656" />
+          <ConnectorPoint PointX="4.7284615384615378" PointY="3.1020719401041656" />
+        </AssociationConnector>
+      </Diagram>
+    </Diagrams>
+  </Designer>
+</edmx:Edmx>

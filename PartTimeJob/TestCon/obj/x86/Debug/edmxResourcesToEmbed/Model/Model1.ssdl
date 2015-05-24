@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="RightsManagementSystem1Model.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+  <EntityContainer Name="RightsManagementSystem1ModelStoreContainer">
+    <EntitySet Name="Menu" EntityType="RightsManagementSystem1Model.Store.Menu" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="SysDepartment" EntityType="RightsManagementSystem1Model.Store.SysDepartment" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="SysPerson" EntityType="RightsManagementSystem1Model.Store.SysPerson" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="FK_MenuMenu" Association="RightsManagementSystem1Model.Store.FK_MenuMenu">
+      <End Role="Menu" EntitySet="Menu" />
+      <End Role="Menu1" EntitySet="Menu" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SysDepartmentSysDepartment" Association="RightsManagementSystem1Model.Store.FK_SysDepartmentSysDepartment">
+      <End Role="SysDepartment" EntitySet="SysDepartment" />
+      <End Role="SysDepartment1" EntitySet="SysDepartment" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Menu">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="ParentId" Type="nvarchar" MaxLength="50" />
+    <Property Name="Url" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Iconic" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Sort" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Remark" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Status" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SysDepartment">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="DepartmentName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="ParentId" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="Sort" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Remark" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Status" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SysPerson">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="Account" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="PassWord" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_MenuMenu">
+    <End Role="Menu" Type="RightsManagementSystem1Model.Store.Menu" Multiplicity="0..1" />
+    <End Role="Menu1" Type="RightsManagementSystem1Model.Store.Menu" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Menu">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Menu1">
+        <PropertyRef Name="ParentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SysDepartmentSysDepartment">
+    <End Role="SysDepartment" Type="RightsManagementSystem1Model.Store.SysDepartment" Multiplicity="1" />
+    <End Role="SysDepartment1" Type="RightsManagementSystem1Model.Store.SysDepartment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SysDepartment">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="SysDepartment1">
+        <PropertyRef Name="ParentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

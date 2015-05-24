@@ -81,9 +81,9 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Menu">
-      <EntityTypeMapping TypeName="IsTypeOf(RightsManagementSystemModel.Menu)">
-        <MappingFragment StoreEntitySet="Menu">
+    <EntitySetMapping Name="SysMenu">
+      <EntityTypeMapping TypeName="IsTypeOf(RightsManagementSystemModel.SysMenu)">
+        <MappingFragment StoreEntitySet="SysMenu">
           <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="Name" ColumnName="Name" />
           <ScalarProperty Name="ParentId" ColumnName="ParentId" />

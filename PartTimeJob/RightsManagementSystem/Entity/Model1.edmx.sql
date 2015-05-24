@@ -2,7 +2,7 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, and Azure
 -- --------------------------------------------------
--- Date Created: 05/11/2015 00:11:38
+-- Date Created: 05/24/2015 22:05:56
 -- Generated from EDMX file: G:\code\SixDean\PartTimeJob\RightsManagementSystem\Entity\Model1.edmx
 -- --------------------------------------------------
 
@@ -37,9 +37,6 @@ IF OBJECT_ID(N'[dbo].[FK_SysPositionSysPosition]', 'F') IS NOT NULL
 GO
 IF OBJECT_ID(N'[dbo].[FK_SysDepartmentSysDepartment]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[SysDepartment] DROP CONSTRAINT [FK_SysDepartmentSysDepartment];
-GO
-IF OBJECT_ID(N'[dbo].[FK_MenuMenu]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[Menu] DROP CONSTRAINT [FK_MenuMenu];
 GO
 
 -- --------------------------------------------------
@@ -153,8 +150,8 @@ CREATE TABLE [dbo].[SysRightsMenu] (
 );
 GO
 
--- Creating table 'Menu'
-CREATE TABLE [dbo].[Menu] (
+-- Creating table 'SysMenu'
+CREATE TABLE [dbo].[SysMenu] (
     [ID] nvarchar(50)  NOT NULL,
     [Name] nvarchar(max)  NOT NULL,
     [ParentId] nvarchar(50)  NULL,
@@ -228,9 +225,9 @@ ADD CONSTRAINT [PK_SysRightsMenu]
     PRIMARY KEY CLUSTERED ([ID] ASC);
 GO
 
--- Creating primary key on [ID] in table 'Menu'
-ALTER TABLE [dbo].[Menu]
-ADD CONSTRAINT [PK_Menu]
+-- Creating primary key on [ID] in table 'SysMenu'
+ALTER TABLE [dbo].[SysMenu]
+ADD CONSTRAINT [PK_SysMenu]
     PRIMARY KEY CLUSTERED ([ID] ASC);
 GO
 
