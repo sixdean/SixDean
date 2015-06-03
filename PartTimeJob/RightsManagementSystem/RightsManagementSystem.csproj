@@ -1823,7 +1823,10 @@
     <Compile Include="Ashx\AjaxGetMenu.ashx.cs">
       <DependentUpon>AjaxGetMenu.ashx</DependentUpon>
     </Compile>
+    <Compile Include="BLL\BaseBLL.cs" />
     <Compile Include="BLL\MainMenuBLL.cs" />
+    <Compile Include="BLL\SysMenuBLL.cs" />
+    <Compile Include="Common\Common.cs" />
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

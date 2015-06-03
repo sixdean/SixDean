@@ -223,7 +223,7 @@
     <Property Type="String" Name="Iconic" Nullable="false" />
     <Property Type="String" Name="Sort" Nullable="false" />
     <Property Type="String" Name="Remark" Nullable="false" />
-    <Property Type="String" Name="Status" Nullable="false" />
+    <Property Type="String" Name="Status" />
     <NavigationProperty Name="SysMenuParent" Relationship="RightsManagementSystemModel.SysMenuSysMenu" FromRole="SysMenu" ToRole="SysMenu1" />
   </EntityType>
   <EntityType Name="SystemSetting">

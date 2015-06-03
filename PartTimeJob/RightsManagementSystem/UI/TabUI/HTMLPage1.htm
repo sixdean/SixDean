@@ -31,6 +31,9 @@
 			">
         <thead>
             <tr>
+                <th data-options="field:'ParentId'">
+                    pid
+                </th>
                 <th data-options="field:'text'">
                     菜单名
                 </th>
@@ -73,7 +76,8 @@
                 </th>
                 <td>
                     <input name="parentName" />
-                    <input name="parentId" style="display: none" />
+                    <input name="ParentId" style="display: none" />
+                    <input name="id" style="display: none" />
                 </td>
             </tr>
             <tr>
@@ -131,6 +135,8 @@
                 ],
                 onBeforeOpen: function () {
                     $("#form1").form("load", {
+                        "id": row.id,
+                        "ParentId": row.ParentId,
                         "text": row.text,
                         "parentName": row.parentName,
                         "Url": row.Url,
@@ -145,6 +151,8 @@
 
         function editFun(row) {
             row = JSON.parse(unescape(row));
+            console.info(row);
+
             var dialog = $("#dialog1").dialog({
                 title: "查看菜单信息",
                 width: 500,
@@ -172,9 +180,21 @@
                             url: "../../Ashx/AjaxEditMenu.ashx",
                             onSubmit: function (param) {
                                 var data = $("#form1").form("getData");
+                                console.info(data);
                                 param.p = JSON.stringify(data);
                             },
                             success: function (data) {
+
+                                if (data == "Ok") {
+                                    alert("保存成功");
+                                    $("#dialog1").dialog("close");
+
+                                } else {
+                                    alert("失败");
+                                }
+                                console.info(data);
+                            },
+                            err: function (data) {
                                 console.info(data);
                             }
                         });
@@ -189,6 +209,8 @@
                 ],
                 onBeforeOpen: function () {
                     $("#form1").form("load", {
+                        "id": row.id,
+                        "parentId": row.parentId,
                         "text": row.text,
                         "parentName": row.parentName,
                         "Url": row.Url,
