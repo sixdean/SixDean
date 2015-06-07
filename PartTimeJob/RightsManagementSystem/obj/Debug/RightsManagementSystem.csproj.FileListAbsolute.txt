@@ -3,10 +3,10 @@ G:\code\SixDean\PartTimeJob\RightsManagementSystem\bin\RightsManagementSystem.pd
 G:\code\SixDean\PartTimeJob\RightsManagementSystem\bin\Newtonsoft.Json.dll
 G:\code\SixDean\PartTimeJob\RightsManagementSystem\obj\Debug\RightsManagementSystem.dll
 G:\code\SixDean\PartTimeJob\RightsManagementSystem\obj\Debug\RightsManagementSystem.pdb
+G:\code\SixDean\PartTimeJob\RightsManagementSystem\obj\Debug\RightsManagementSystem.csprojResolveAssemblyReference.cache
 F:\personal\SixDean\PartTimeJob\RightsManagementSystem\bin\RightsManagementSystem.dll
 F:\personal\SixDean\PartTimeJob\RightsManagementSystem\bin\RightsManagementSystem.pdb
 F:\personal\SixDean\PartTimeJob\RightsManagementSystem\bin\Newtonsoft.Json.dll
 F:\personal\SixDean\PartTimeJob\RightsManagementSystem\obj\Debug\RightsManagementSystem.csprojResolveAssemblyReference.cache
 F:\personal\SixDean\PartTimeJob\RightsManagementSystem\obj\Debug\RightsManagementSystem.dll
 F:\personal\SixDean\PartTimeJob\RightsManagementSystem\obj\Debug\RightsManagementSystem.pdb
-G:\code\SixDean\PartTimeJob\RightsManagementSystem\obj\Debug\RightsManagementSystem.csprojResolveAssemblyReference.cache
