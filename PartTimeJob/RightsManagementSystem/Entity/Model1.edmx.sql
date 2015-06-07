@@ -2,7 +2,7 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, and Azure
 -- --------------------------------------------------
--- Date Created: 05/27/2015 23:12:58
+-- Date Created: 06/07/2015 11:17:59
 -- Generated from EDMX file: G:\code\SixDean\PartTimeJob\RightsManagementSystem\Entity\Model1.edmx
 -- --------------------------------------------------
 
@@ -17,58 +17,58 @@ GO
 -- Dropping existing FOREIGN KEY constraints
 -- --------------------------------------------------
 
-IF OBJECT_ID(N'[dbo].[FK_SysPerSonSysPersonToPosition]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[SysPersonToPosition] DROP CONSTRAINT [FK_SysPerSonSysPersonToPosition];
-GO
-IF OBJECT_ID(N'[dbo].[FK_SysPositionSysPersonToPosition]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[SysPersonToPosition] DROP CONSTRAINT [FK_SysPositionSysPersonToPosition];
-GO
-IF OBJECT_ID(N'[dbo].[FK_SysPositionSysDepartment]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[SysPosition] DROP CONSTRAINT [FK_SysPositionSysDepartment];
+IF OBJECT_ID(N'[dbo].[FK_SysDepartmentSysDepartment]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[SysDepartment] DROP CONSTRAINT [FK_SysDepartmentSysDepartment];
 GO
 IF OBJECT_ID(N'[dbo].[FK_SysPersonOrPositionToRoleSysRole]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[SysPersonOrPositionToRole] DROP CONSTRAINT [FK_SysPersonOrPositionToRoleSysRole];
 GO
-IF OBJECT_ID(N'[dbo].[FK_SysRoleToRightsSysRightsMenu]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[SysRoleToRights] DROP CONSTRAINT [FK_SysRoleToRightsSysRightsMenu];
+IF OBJECT_ID(N'[dbo].[FK_SysPerSonSysPersonToPosition]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[SysPersonToPosition] DROP CONSTRAINT [FK_SysPerSonSysPersonToPosition];
+GO
+IF OBJECT_ID(N'[dbo].[FK_SysPositionSysDepartment]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[SysPosition] DROP CONSTRAINT [FK_SysPositionSysDepartment];
+GO
+IF OBJECT_ID(N'[dbo].[FK_SysPositionSysPersonToPosition]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[SysPersonToPosition] DROP CONSTRAINT [FK_SysPositionSysPersonToPosition];
 GO
 IF OBJECT_ID(N'[dbo].[FK_SysPositionSysPosition]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[SysPosition] DROP CONSTRAINT [FK_SysPositionSysPosition];
 GO
-IF OBJECT_ID(N'[dbo].[FK_SysDepartmentSysDepartment]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[SysDepartment] DROP CONSTRAINT [FK_SysDepartmentSysDepartment];
+IF OBJECT_ID(N'[dbo].[FK_SysRoleToRightsSysRightsMenu]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[SysRoleToRights] DROP CONSTRAINT [FK_SysRoleToRightsSysRightsMenu];
 GO
 
 -- --------------------------------------------------
 -- Dropping existing tables
 -- --------------------------------------------------
 
+IF OBJECT_ID(N'[dbo].[SysDepartment]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[SysDepartment];
+GO
+IF OBJECT_ID(N'[dbo].[SysMenu]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[SysMenu];
+GO
 IF OBJECT_ID(N'[dbo].[SysPerson]', 'U') IS NOT NULL
     DROP TABLE [dbo].[SysPerson];
-GO
-IF OBJECT_ID(N'[dbo].[SysPosition]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[SysPosition];
-GO
-IF OBJECT_ID(N'[dbo].[SysPersonToPosition]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[SysPersonToPosition];
-GO
-IF OBJECT_ID(N'[dbo].[SysRole]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[SysRole];
 GO
 IF OBJECT_ID(N'[dbo].[SysPersonOrPositionToRole]', 'U') IS NOT NULL
     DROP TABLE [dbo].[SysPersonOrPositionToRole];
 GO
-IF OBJECT_ID(N'[dbo].[SysDepartment]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[SysDepartment];
+IF OBJECT_ID(N'[dbo].[SysPersonToPosition]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[SysPersonToPosition];
 GO
-IF OBJECT_ID(N'[dbo].[SysRoleToRights]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[SysRoleToRights];
+IF OBJECT_ID(N'[dbo].[SysPosition]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[SysPosition];
 GO
 IF OBJECT_ID(N'[dbo].[SysRightsMenu]', 'U') IS NOT NULL
     DROP TABLE [dbo].[SysRightsMenu];
 GO
-IF OBJECT_ID(N'[dbo].[SysMenu]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[SysMenu];
+IF OBJECT_ID(N'[dbo].[SysRole]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[SysRole];
+GO
+IF OBJECT_ID(N'[dbo].[SysRoleToRights]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[SysRoleToRights];
 GO
 IF OBJECT_ID(N'[dbo].[SystemSetting]', 'U') IS NOT NULL
     DROP TABLE [dbo].[SystemSetting];
