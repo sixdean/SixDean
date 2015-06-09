@@ -75,6 +75,7 @@
                     父级菜单名
                 </th>
                 <td>
+ 
                     <!--<input name="parentName" />-->
                     <input name="ParentId" style="display: none" />
                     <input name="id" style="display: none" />
@@ -84,6 +85,8 @@
                                            console.info(o);
                                            console.info(n);
                                          $('#form1').form('load',{ParentId:n}); }" />
+ 
+ 
                 </td>
             </tr>
             <tr>
@@ -122,6 +125,7 @@
             var f = $("#form1");
 
         });
+                
 
         function editFun(row) {
             row = JSON.parse(unescape(row));
@@ -152,7 +156,6 @@
                             url: "../../Ashx/AjaxEditMenu.ashx",
                             onSubmit: function (param) {
                                 var data = $("#form1").form("getData");
-                                console.info(data);
                                 param.p = JSON.stringify(data);
                             },
                             success: function (data) {
@@ -193,6 +196,7 @@
                         Iconic: row.Iconic,
                         Sort: row.Sort,
                         Remark: row.Remark
+                         
                     });
                 },
                 onLoadSuccess: function (data) {

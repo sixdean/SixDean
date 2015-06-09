@@ -2,7 +2,11 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, and Azure
 -- --------------------------------------------------
+<<<<<<< HEAD
 -- Date Created: 06/07/2015 11:17:59
+=======
+-- Date Created: 05/24/2015 22:05:56
+>>>>>>> origin/master
 -- Generated from EDMX file: G:\code\SixDean\PartTimeJob\RightsManagementSystem\Entity\Model1.edmx
 -- --------------------------------------------------
 
@@ -70,6 +74,15 @@ GO
 IF OBJECT_ID(N'[dbo].[SysRoleToRights]', 'U') IS NOT NULL
     DROP TABLE [dbo].[SysRoleToRights];
 GO
+<<<<<<< HEAD
+=======
+IF OBJECT_ID(N'[dbo].[SysRightsMenu]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[SysRightsMenu];
+GO
+IF OBJECT_ID(N'[dbo].[Menu]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[Menu];
+GO
+>>>>>>> origin/master
 IF OBJECT_ID(N'[dbo].[SystemSetting]', 'U') IS NOT NULL
     DROP TABLE [dbo].[SystemSetting];
 GO
@@ -159,7 +172,7 @@ CREATE TABLE [dbo].[SysMenu] (
     [Iconic] nvarchar(max)  NOT NULL,
     [Sort] nvarchar(max)  NOT NULL,
     [Remark] nvarchar(max)  NOT NULL,
-    [Status] nvarchar(max)  NULL
+    [Status] nvarchar(max)  NOT NULL
 );
 GO
 
@@ -336,20 +349,6 @@ ADD CONSTRAINT [FK_SysDepartmentSysDepartment]
 -- Creating non-clustered index for FOREIGN KEY 'FK_SysDepartmentSysDepartment'
 CREATE INDEX [IX_FK_SysDepartmentSysDepartment]
 ON [dbo].[SysDepartment]
-    ([ParentId]);
-GO
-
--- Creating foreign key on [ParentId] in table 'SysMenu'
-ALTER TABLE [dbo].[SysMenu]
-ADD CONSTRAINT [FK_SysMenuSysMenu]
-    FOREIGN KEY ([ParentId])
-    REFERENCES [dbo].[SysMenu]
-        ([ID])
-    ON DELETE NO ACTION ON UPDATE NO ACTION;
-
--- Creating non-clustered index for FOREIGN KEY 'FK_SysMenuSysMenu'
-CREATE INDEX [IX_FK_SysMenuSysMenu]
-ON [dbo].[SysMenu]
     ([ParentId]);
 GO
 

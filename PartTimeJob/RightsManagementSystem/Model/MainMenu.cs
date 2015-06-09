@@ -10,7 +10,7 @@ namespace RightsManagementSystem.Model
     {
         public string id { get; set; }
         public string text { get; set; }
-        public  string Url { get; set; }
+        public string Url { get; set; }
         public string ParentId { get; set; }
         public string state { get; set; }
         public string Iconic { get; set; }
